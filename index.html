@@ -45,7 +45,7 @@
     <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
 
     <!-- Tombol Confetti -->
-    <button onclick="confetti()">Click me for confetti!</button>
+    <button onclick="showConfettiWithMessage()">Click me for confetti!</button>
 
     <!-- Embed Musik: The Beatles Happy Birthday -->
     <audio autoplay loop>
@@ -60,13 +60,16 @@
             document.body.classList.toggle('dark-mode');
         }
 
-        // Confetti
-        function confetti() {
+        // Confetti + Pop-up Message
+        function showConfettiWithMessage() {
             confetti({
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 }
             });
+
+            // Pop-up message setelah tombol ditekan
+            alert("Happy Birthday! 🎂 Wishing you all the best!");
         }
 
         // Countdown Timer
