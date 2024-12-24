@@ -30,7 +30,7 @@
             padding: 10px;
             font-size: 16px;
         }
-        body.dark-mode {
+        .dark-mode {
             background-color: #1a202c;
             color: white;
         }
@@ -53,10 +53,13 @@
     <button onclick="checkPassword()">Click me for confetti!</button>
 
     <!-- Embed Musik: The Beatles Happy Birthday -->
-    <audio autoplay loop>
-        <source src="https://www.youtube.com/embed/ZcdVptE97IY" type="text/html">
-        Your browser does not support the audio element. <a href="https://www.youtube.com/watch?v=ZcdVptE97IY">Happy Birthday (The Beatles)</a>.
+    <audio autoplay loop id="birthday-audio">
+        <source src="https://www.youtube.com/watch?v=ZcdVptE97IY" type="audio/mp3">
+        Your browser does not support the audio element.
     </audio>
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
     <script>
