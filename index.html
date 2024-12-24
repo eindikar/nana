@@ -65,26 +65,31 @@
             document.body.classList.toggle('dark-mode');
         }
 
-        // Confetti + Pop-up Message
+        // Confetti + Pop-up Message (Muncul setelah confetti)
         function showConfettiWithMessage() {
             confetti({
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 }
             });
-            alert("Happy Birthday, Nana! 🎂 Wishing you all the best!");
+            // Delay alert untuk muncul setelah confetti bertaburan
+            setTimeout(() => {
+                alert("Happy Birthday, Nana! 🎂 Wishing you all the best!");
+            }, 1000); // 1 detik setelah confetti
         }
 
         // Function to Check Password
         function checkPassword() {
             const password = document.getElementById("passwordInput").value;
-            if (password === "birthday123") {  // Ganti dengan password yang kamu mau
+            if (password === "sayang dika") {  // Ganti password menjadi "sayang dika"
                 confetti({
                     particleCount: 100,
                     spread: 70,
                     origin: { y: 0.6 }
                 });
-                alert("Password Correct! Confetti time!");
+                setTimeout(() => {
+                    alert("Password Correct! Confetti time!");
+                }, 1000); // Muncul alert setelah confetti
             } else {
                 alert("Wrong password, try again!");
             }
