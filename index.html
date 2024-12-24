@@ -25,6 +25,11 @@
             font-size: 18px;
             cursor: pointer;
         }
+        input {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
         body.dark-mode {
             background-color: #1a202c;
             color: white;
@@ -41,8 +46,15 @@
     <p>Once upon a time, someone amazing was born...</p>
     <p id="countdown"></p>
 
+    <!-- Countdown dan Confetti After Countdown -->
+    <p id="message"></p>
+
     <!-- Tombol Dark Mode -->
     <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+    <!-- Input Password untuk Confetti -->
+    <input type="password" id="passwordInput" placeholder="Enter password for confetti">
+    <button onclick="checkPassword()">Submit Password</button>
 
     <!-- Tombol Confetti -->
     <button onclick="showConfettiWithMessage()">Click me for confetti!</button>
@@ -67,13 +79,26 @@
                 spread: 70,
                 origin: { y: 0.6 }
             });
-
-            // Pop-up message setelah tombol ditekan
-            alert("Happy Birthday! 🎂 Wishing you all the best!");
+            alert("hehe gatau isinya mau apa");
         }
 
-        // Countdown Timer
-        const birthday = new Date("2024-12-25T00:00:00");
+        // Function to Check Password
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            if (password === "birthday123") {  // Ganti dengan password yang kamu mau
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                alert("Password Correct! Confetti time!");
+            } else {
+                alert("Wrong password, try again!");
+            }
+        }
+
+        // Countdown Timer with Confetti Trigger
+        const birthday = new Date("2024-12-24T23:41:00");
         setInterval(() => {
             const now = new Date();
             const timeLeft = birthday - now;
@@ -82,6 +107,17 @@
             const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
             const seconds = Math.floor((timeLeft / 1000) % 60);
             document.getElementById("countdown").innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds left!`;
+
+            // Trigger confetti when countdown finishes
+            if (timeLeft <= 0) {
+                document.getElementById("message").innerText = "It's time! 🎉";
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                alert("Happy Birthday! 🎂 Let's Celebrate!");
+            }
         }, 1000);
     </script>
 </body>
