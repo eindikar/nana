@@ -37,7 +37,7 @@
     </style>
 </head>
 <body>
-    <h1>Happy Birthday! 🎉</h1>
+    <h1>Happy Birthday, Nana! 🎉</h1>
     <p>Once upon a time, someone amazing was born...</p>
     <p id="countdown"></p>
 
@@ -47,10 +47,10 @@
     <!-- Tombol Confetti -->
     <button onclick="confetti()">Click me for confetti!</button>
 
-    <!-- Embed Musik -->
+    <!-- Embed Musik: The Beatles Happy Birthday -->
     <audio autoplay loop>
-        <source src="https://example.com/happy-birthday-song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        <source src="https://www.youtube.com/embed/ZcdVptE97IY" type="text/html">
+        Your browser does not support the audio element. <a href="https://www.youtube.com/watch?v=ZcdVptE97IY">Happy Birthday (The Beatles)</a>.
     </audio>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
@@ -70,7 +70,7 @@
         }
 
         // Countdown Timer
-        const birthday = new Date("2024-12-31T00:00:00");
+        const birthday = new Date("2024-12-25T00:00:00");
         setInterval(() => {
             const now = new Date();
             const timeLeft = birthday - now;
