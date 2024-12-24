@@ -53,8 +53,8 @@
     <button onclick="checkPassword()">Click me for confetti!</button>
 
     <!-- Embed Musik: The Beatles Happy Birthday -->
-    <audio autoplay loop id="birthday-audio">
-        <source src="https://www.youtube.com/watch?v=ZcdVptE97IY" type="audio/mp3">
+    <audio id="birthday-audio">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -85,13 +85,16 @@
         function checkPassword() {
             const password = document.getElementById("passwordInput").value;
             if (password === "sayang dika") {  // Ganti password menjadi "sayang dika"
+                // Autoplay audio setelah password benar
+                const audio = document.getElementById("birthday-audio");
+                audio.play(); // Menjalankan audio secara otomatis
                 confetti({
                     particleCount: 100,
                     spread: 70,
                     origin: { y: 0.6 }
                 });
                 setTimeout(() => {
-                    alert("my love, you're my heart and soul. i'm so grateful to have you in my life. happy birthday, sayang, i love you forever.");
+                    alert("my love, you're my heart and soul. i'm so grateful to have you in my life. happy birthday, sayang, i love you forever. (mff cuma begini)");
                 }, 1000); // Muncul alert setelah confetti
             } else {
                 alert("Wrong password, try again!");
