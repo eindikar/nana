@@ -3,58 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Birthday Celebration</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
+        /* CSS untuk animasi, dark mode, dll */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Pacifico', cursive;
             text-align: center;
-            background-color: #fef3c7;
             margin: 0;
             padding: 0;
-        }
-        .container {
-            padding: 50px;
+            background-color: #fdf6e3;
+            color: #333;
         }
         h1 {
-            font-size: 3rem;
-            color: #f59e0b;
+            animation: bounce 2s infinite;
         }
-        p {
-            font-size: 1.2rem;
-            color: #374151;
-        }
-        .balloons {
-            margin-top: 20px;
-            animation: float 3s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        .btn {
-            display: inline-block;
+        button {
             margin-top: 20px;
             padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
-            background-color: #10b981;
-            border: none;
-            border-radius: 5px;
+            font-size: 18px;
             cursor: pointer;
-            text-decoration: none;
         }
-        .btn:hover {
-            background-color: #059669;
+        body.dark-mode {
+            background-color: #1a202c;
+            color: white;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 Happy Birthday! 🎉</h1>
-        <p>Wishing you all the happiness in the world!</p>
-        <img src="https://via.placeholder.com/300x150?text=🎈🎂" alt="Balloons" class="balloons">
-        <br>
-        <a href="https://example.com" class="btn">Celebrate Now</a>
-    </div>
+    <h1>Happy Birthday! 🎉</h1>
+    <p>Once upon a time, someone amazing was born...</p>
+    <p id="countdown"></p>
+
+    <!-- Tombol Dark Mode -->
+    <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+    <!-- Tombol Confetti -->
+    <button onclick="confetti()">Click me for confetti!</button>
+
+    <!-- Embed Musik -->
+    <audio autoplay loop>
+        <source src="https://example.com/happy-birthday-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Confetti
+        function confetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Countdown Timer
+        const birthday = new Date("2024-12-31T00:00:00");
+        setInterval(() => {
+            const now = new Date();
+            const timeLeft = birthday - now;
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+            const seconds = Math.floor((timeLeft / 1000) % 60);
+            document.getElementById("countdown").innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds left!`;
+        }, 1000);
+    </script>
 </body>
 </html>
